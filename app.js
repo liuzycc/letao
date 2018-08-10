@@ -45,6 +45,9 @@ app.use(express.static(path.join(__dirname, 'public')));
  next();
  });*/
 
+/**
+ *  挂载路由
+ */
 app.use('/user', user);
 app.use('/product', product);
 app.use('/category', category);
@@ -52,6 +55,9 @@ app.use('/cart', cart);
 app.use('/address', address);
 app.use('/employee', employee);
 
+/**
+ * 404
+ */
 app.use(function (req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
@@ -67,6 +73,9 @@ if (app.get('env') === 'development') {
     });
 }
 
+/**
+ * 4个参数 错误路由
+ */
 app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.send({
