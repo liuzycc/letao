@@ -1,0 +1,111 @@
+body,html {
+  height: 100%;
+}
+.container {
+  height: 100%;
+  position: relative;
+}
+header {
+  width: 100%;
+  height: 0.45rem;
+  background-color: #006699;
+  text-align: center;
+  font-size: 0.25rem;
+  line-height: 0.45rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  color: #fff;
+  span {
+    display: block;
+    height: 0.45rem;
+  }
+}
+footer {
+  width: 100%;
+  height: 55px;
+  background-color: #006699;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 999;  
+  a {
+    display: block;
+    width: 25%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    font-size: 0.20rem;
+    color: #fff;
+    p {
+      color: #fff;
+      font-size: 0.12rem;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+.main {
+  padding: 0.45rem 0 55px 0;
+  height: 100%;
+  overflow: hidden;
+  .mui-scroll-wrapper {
+    height: 100%;
+    padding: 0.45rem 0 55px 0;
+    //轮播图
+    .banner {
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+    //导航栏
+    nav {
+      padding: 10px;
+      a{
+        display: block;
+        width: 33.333%;
+        float: left;
+        img {
+          width: 100%;
+        }
+      }
+    } 
+    // 产品列表
+    .produck {
+      padding: 10px;
+      background-color: #fff;
+      .box:nth-child(2n) {
+        float: right;
+      }
+      .box {
+        margin-top: 10px;
+        width: 49%;
+        padding: 10px;
+        float: left;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        a {
+          display: block;
+          text-align: center;
+          p {
+            font-size: 0.12rem;
+          }
+          p:nth-child(2) {
+            text-align: left;
+          }
+          img {
+            width: 100%;
+          }
+          span:nth-child(1) {
+            color: red;
+          }
+          .del {
+            text-decoration: line-through;
+          }
+        }
+      }
+    }
+  }
+}
