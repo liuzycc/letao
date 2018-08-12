@@ -36,6 +36,12 @@
 .lt_cateRight ul{
     width: 100%;
 }
+.lt_cateRight ul li.nd {
+    width: 100%;
+    text-align: center;
+    color: #666;
+    margin-top: 10px;
+}
 .lt_cateRight ul li{
     width: 33.3333%;
     float: left;

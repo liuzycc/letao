@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0">
-    <title>乐淘鞋业-分类</title>
+    <title>乐淘鞋业-搜索</title>
     <link rel="stylesheet" href="assets/mui/css/mui.min.css">
     <link rel="stylesheet" href="assets/fontAwesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/mobile.css">
-    <link rel="stylesheet" href="css/category.css">
+    <link rel="stylesheet" href="css/search.css">
 </head>
 <body>
 <!--主体容器-->
@@ -15,20 +15,25 @@
     <!--头部-->
     <header class="lt_header">
         <a href="javascript:history.back();" class="left"><span class="fa fa-chevron-left"></span></a>
-        <h3>商品分类</h3>
-        <a href="./search.html" class="right"><span class="fa fa-search"></span></a>
+        <h3>商品搜索</h3>
+        <!-- <a href="./search.html" class="right"><span class="fa fa-search"></span></a> -->
     </header>
     <!--内容-->
     <div class="lt_content">
         <div class="lt_wrapper">
-            <!--左侧顶级分类-->
-            <aside class="lt_cateLeft">
+           <div class="tit">
+               <input type="text" placeholder="根据商品关键字进行搜索">
+               <a href="#">搜索</a>
+           </div>
+           <div class="con">
+               <div class="con-tit">
+                    <span>搜索历史</span>
+                    <a href="#"><span class='fa fa-trash'></span>清空记录</a>
+               </div>
+               <div class="con-ul">
                 <!-- TODO render -->
-            </aside>
-            <!--右侧品牌分类-->
-            <article class="lt_cateRight">
-               <!-- TODO render -->
-            </article>
+               </div>
+           </div>
         </div>
     </div>
     <!--底部-->
@@ -39,28 +44,25 @@
         <a href="/mobile/user/index.html"><span class="fa fa-user"></span><p>个人中心</p></a>
     </footer>
 </div>
-<script type="text/html" id='renderLeft'>
+<script type='text/html' id='conul'>
     <ul>
-        {{each rows}}
-        <li class="{{ $index = 0? 'now':'' }}" data-id='{{$value.id}}'><a href="javascript:;">{{$value.categoryName}}</a></li>
-        {{/each}}
-    </ul>
-</script>
-<script type='text/html' id='renderRight'>
-    <ul>
-        {{if rows.length}}
-        {{each rows}}
-        <li><a href="#"><img onerror="this.src='./images/none01.jpg'" src="{{$value.brandLogo||'./images/none01.jpg'}}" alt=""><p>{{$value.brandName}}</p></a></li>    
-        {{/each}}
-        {{else}}
-        <li class='nd'>没有品牌数据</li>
-        {{/if}}
+        <% if($data.length>0){ %>
+        <% for(var i=$data.length - 1;i>=0;i--){ %>
+        <li>
+            <span><%= $data[i] %></span>
+            <a href="#" class='fa fa-close' data-index="<%= i %>"></a>
+        </li>
+        <% } %>
+        <% }else{%>
+            <li><span>您没有历史搜索记录</span></li>
+        <% } %>
+
     </ul>
 </script>
 <script src="assets/mui/js/mui.min.js"></script>
 <script src="assets/zepto/zepto.min.js"></script>
 <script src='assets/artTemplate/template-web.js'></script>
 <script src="js/mobile.js"></script>
-<script src="js/category.js"></script>
+<script src="js/search.js"></script>
 </body>
 </html>

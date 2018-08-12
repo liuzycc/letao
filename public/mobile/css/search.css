@@ -1,0 +1,36 @@
+.lt_wrapper .con {
+  position: relative;
+  padding: 0 10px;
+}
+.lt_wrapper .con .con-tit {
+  font-size: 12px;
+  line-height: 20px;
+  color: #666;
+}
+.lt_wrapper .con .con-tit a {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  color: #666;
+}
+.lt_wrapper .con .con-ul {
+  width: 100%;
+  border: 1px dashed #ccc;
+  border-bottom: none;
+}
+.lt_wrapper .con .con-ul li {
+  border-bottom: 1px dashed #ccc;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  padding-left: 10px;
+}
+.lt_wrapper .con .con-ul li a {
+  float: right;
+  display: block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  /* margin-right: 10px; */
+  line-height: 30px;
+}
