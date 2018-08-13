@@ -21,7 +21,7 @@ var App = function(){
 App.prototype = {
   // 初始化页面
   init:function(){
-    this.$conUl.html(template('conul',this.list));
+    this.$conUl.html(template('conul',{list:this.list,ec:encodeURIComponent}));
   },
   //绑定事件
   bindEvent:function(){
@@ -37,14 +37,14 @@ App.prototype = {
       _this.addHistory(valcc);
     })
     //删除事件
-    this.$conUl.on('click','li a',function(){
+    this.$conUl.on('tap','li a.del',function(){
       var index = $(this).data('index');
       _this.removeHistory(index);
       //重新渲染页面
       _this.init();
     })
     //清空记录
-    this.$clearBtn.on('click',function(){
+    this.$clearBtn.on('tap',function(){
       _this.list.length = 0;
       localStorage.setItem(_this.key,JSON.stringify(_this.list));
       //重新渲染页面
@@ -66,7 +66,7 @@ App.prototype = {
     localStorage.setItem(this.key,JSON.stringify(this.list));
     this.titInput.val('');
     //跳转页面
-    location.href = './searchlist.html';
+    location.href = './searchlist.html?key=' + value;
   },
   removeHistory:function(index){
     if(this.list.length < index)

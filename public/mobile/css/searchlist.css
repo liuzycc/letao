@@ -1,0 +1,17 @@
+.select {
+  width: 100%;
+  background-color: #f3f4f5;
+  height: 30px;
+}
+.select a {
+  font-size: 12px;
+  font-weight: 400;
+  float: left;
+  width: 25%;
+  color: #666;
+  text-align: center;
+  line-height: 30px;
+}
+.select a.now {
+  color: #fa0;
+}

@@ -46,11 +46,12 @@
 </div>
 <script type='text/html' id='conul'>
     <ul>
-        <% if($data.length>0){ %>
-        <% for(var i=$data.length - 1;i>=0;i--){ %>
+        <% if($data.list.length>0){ %>
+        <% for(var i=$data.list.length - 1;i>=0;i--){ %>
         <li>
-            <span><%= $data[i] %></span>
-            <a href="#" class='fa fa-close' data-index="<%= i %>"></a>
+            <a href="./searchlist.html?key=<%=ec($data.list[i])%>">跳转</a>
+            <span><%= $data.list[i] %></span>
+            <a href="javascript:;" class='fa fa-close del' data-index="<%= i %>"></a>
         </li>
         <% } %>
         <% }else{%>

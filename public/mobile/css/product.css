@@ -1,0 +1,102 @@
+.productInfo {
+  font-size: 12px;
+  color: #666;
+  background: #fff;
+}
+.productInfo li {
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  font-size: 16px;
+}
+.pro_tit p {
+  font-size: 20px;
+  color: #666;
+  margin: 0;
+  padding: 0;
+}
+.pro_pic {
+  color: #000;
+}
+.pro_pic .now {
+  color: red;
+}
+.pro_pic .old {
+  font-size: 12px;
+  color: #666;
+  text-decoration: line-through;
+}
+.pro_size {
+  color: #000;
+}
+.pro_size span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid #ccc;
+  margin-left: 6px;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+.pro_size span.now {
+  background-color: #fa0;
+}
+.pro_num {
+  color: #000;
+}
+.pro_num .box {
+  display: inline-block;
+  text-align: center;
+  line-height: 30px;
+}
+.pro_num .box span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+}
+.pro_num .box span:active {
+  background-color: #ccc;
+}
+.pro_num .box input {
+  width: 50px;
+  height: 30px;
+  border: 1px solid #ccc;
+}
+
+
+/* 底部 */
+.lt_footer {
+  background-color: #fff;
+}
+.lt_footer a {
+  display: inline-block;
+  padding: 0;
+  text-align: center;
+}
+.lt_footer .carIcon{
+  width: 55px;
+  height: 55px;
+  color: #666;
+  font-size: 18px;
+  line-height: 55px;
+}
+.lt_footer .addCar {
+  width: 40%;
+  height: 40px;
+  background-color: #991020;
+  line-height: 40px;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 5px;
+  border-radius: 5px;  
+}
+.lt_footer .pay {
+  width: 40%;
+  height: 40px;
+  background-color: #fa672d;
+  line-height: 40px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
