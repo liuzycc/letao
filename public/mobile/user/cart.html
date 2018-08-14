@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0">
+    <title>传智电商-购物车</title>
+    <link rel="stylesheet" href="../assets/mui/css/mui.min.css">
+    <link rel="stylesheet" href="../assets/fontAwesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/mobile.css">
+    <link rel="stylesheet" href="../css/user/cart.css">
+</head>
+<body>
+<!--主体容器-->
+<div class="lt_container">
+    <!--头部-->
+    <header class="lt_header">
+        <a href="javascript:history.back();" class="left"><span class="fa fa-chevron-left"></span></a>
+        <h3>乐淘鞋业-购物车</h3>
+        <a href="javascript:;" class="right"><span class="fa fa-refresh"></span></a>
+    </header>
+    <!--内容-->
+    <div class="lt_content">
+        <div class="lt_wrapper">
+            <div id="refreshContainer" class="mui-scroll-wrapper">
+              <div class="mui-scroll">
+                <!-- 购物车列表 -->
+                <!-- TODO render -->
+              </div>
+            </div>
+        </div>
+    </div>
+    <!-- 总金额区域 -->
+    <div class="priceArea">
+      <span>订单总额：¥</span>
+      <span class='priceAll'>0.00</span>
+      <button>生成订单</button>
+    </div>
+    <!--底部-->
+    <footer class="lt_footer">
+        <a href="/mobile/index.html"><span class="fa fa-home"></span><p>首页</p></a>
+        <a href="/mobile/category.html"><span class="fa fa-bars"></span><p>分类</p></a>
+        <a href="/mobile/user/cart.html"><span class="fa fa-shopping-cart"></span><p>购物车</p></a>
+        <a href="/mobile/user/index.html" class="now"><span class="fa fa-user"></span><p>个人中心</p></a>
+    </footer>
+</div>
+<script type='text/template' id='tpl'>
+  <ul class='mui-table-view mui-table-view-chevron' id='cart'>
+    <% 
+      for(var i=$data.length - 1;i>=0;i--){ 
+        var item = $data[i];
+    %>
+    <li data-price="{{item.price}}" data-num="{{item.num}}" class="mui-table-view-cell mui-transitioning">
+      <div class="mui-slider-right mui-disabled">
+        <a data-index="{{i}}" data-order="{{$data.length - 1 -i}}" class="mui-btn mui-btn-blue mui-icon fa fa-edit" style="transform: translate(0px, 0px);"></a>
+        <a data-index="{{i}}" class="mui-btn mui-btn-red mui-icon fa fa-trash" style="transform: translate(-90px, 0px);"></a>
+      </div>
+      <div class="mui-slider-handle" style="transform: translate(0px, 0px);">
+        <div class="mui-table-cell">
+          <img onerror="this.src='/mobile/images/none01.jpg'" src="{{item.pic[0].picAddr || '/mobile/images/none01.jpg'}}" alt="">
+          <div class="box mui-navigate-right">
+              <p class='mui-ellipsis-2'>{{item.proName}}</p>
+              <p>
+                <span class='now'>¥{{item.price}}</span>
+                <span class='old'>¥{{item.oldPrice}}</span>
+                <span class='num'>x{{item.num}}双</span>
+              </p>
+              <p>鞋码：{{item.size}}</p>
+          </div>
+          <input data-index="{{i}}" {{item.ischecked?'checked':''}} type="checkbox" >
+        </div>
+      </div>
+    </li>
+    <%}%>
+  </ul>
+</script>
+<!-- 编辑弹窗模板 -->
+<script type='text/template' id='tpl2'>
+  <ul>
+      <li class="pro_size">尺码:
+        <%
+          var tempArr = $data.productSize.split('-');
+          var start = tempArr[0];
+          var end = tempArr[1];
+          for(var i=start;i<=end;i++){
+        %>
+          <span class="<%= $data.size==i?'now':'' %>">{{i}}</span>
+          <%}%>
+      </li>
+      <li class="pro_num">数量:
+          <div class="box">
+            <span class="reduce">-</span>
+            <input type="text" value="{{num}}" readonly="">
+            <span class="add">+</span>
+          </div>
+          剩余:<span class="num">{{productNum}}</span>件
+        </li>
+  </ul>
+</script>
+<script src="../assets/mui/js/mui.min.js"></script>
+<script src="../assets/zepto/zepto.min.js"></script>
+<script src="../assets/artTemplate/template-web.js"></script>
+<script src="../js/mobile.js"></script>
+<script src="../js/user/cart.js"></script>
+</body>
+</html>

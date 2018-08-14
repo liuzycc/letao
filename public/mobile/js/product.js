@@ -37,10 +37,10 @@ App.prototype = {
 	},
 	bindEvent:function(){
 		var _this = this;
-		this.$container.on('click','.pro_size span',function(){
+		this.$container.on('tap','.pro_size span',function(){
 			this.classList.add('now');
 			$(this).siblings().removeClass('now');
-		}).on('click','.box .reduce',function(){
+		}).on('tap','.box .reduce',function(){
 			var input = $('.box input');
 			var num = input.val();
 			if(--num <= 0)
@@ -49,7 +49,7 @@ App.prototype = {
 				return;
 			}
 			input.val(num);
-		}).on('click','.box .add',function(){
+		}).on('tap','.box .add',function(){
 			var input = $('.box input');
 			var max = $('.num').text();
 			var num = input.val();
@@ -61,10 +61,43 @@ App.prototype = {
 			input.val(num);
 		})
 		//绑定立刻购买按钮
-		this.$pay.on('click',function(){
+		this.$pay.on('tap',function(){
 			//获取数据到一个对象中
 			var obj = {};
-			
+		})
+		//绑定加入购物车
+		$('.addCar').on('tap',function(){
+			_this.addCart();
+		})
+	},
+	//添加购物车
+	addCart:function(){
+		var data = {
+			productId:this.id,
+			size:$('.pro_size span.now').text(),
+			num:$('.box input').val()
+		}
+		if(!data.size)
+		{
+			mui.toast('请选择尺码');
+			return;
+		}
+		console.log(data);
+		It.ajax({
+			type:'post',
+			url:'/cart/addCart',
+			data:data,
+			dataType:'json',
+			success:function(data){
+				//成功业务
+				mui.confirm('添加成功,去购物车看看？','温馨提示',['取消','确认'],function(e){
+					if(e.index == 1)
+					{
+						location.href = '/mobile/user/cart.html';
+					}
+				})
+			}
+
 		})
 	},
 	//重新初始化轮播图滚动和页面滚动

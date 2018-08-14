@@ -18,3 +18,18 @@ It.getParameterByUrl = function(){
   })
   return obj;
 } 
+//封装ajax 为了 拦截data==400情况的发生
+It.ajax = function(options){
+  var current = options.success;
+  options.success = function(data){
+    if(data.error == '400')
+    {
+      location.href = 'http://127.0.0.1:3000/mobile/user/login.html?returnUrl=' + encodeURIComponent(location.href);
+      return;
+    }
+    else {
+      current(data);
+    }
+  }
+  $.ajax(options);
+}

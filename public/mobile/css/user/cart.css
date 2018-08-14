@@ -1,0 +1,101 @@
+.lt_content {
+  padding-bottom: 85px;
+}
+.mui-btn.mui-icon {
+  font-size: 12px;
+}
+.mui-scroll ul li {
+  position: relative;
+}
+.mui-scroll ul li .box {
+  overflow: hidden;
+  padding-right: 15px;
+}
+.mui-scroll ul li p {
+  color: #000;
+  margin-left: 5px;
+}
+.mui-scroll ul li img {
+  width: 60px;
+  height: 60px;
+  float: left;
+  margin-right: 10px;
+}
+.mui-scroll ul li .box .num {
+  float: right;
+}
+.mui-scroll ul li .box .now {
+  color: red;
+}
+.mui-scroll ul li .box .old {
+  text-decoration: line-through;
+  color: #666;
+}
+.mui-scroll ul li input[type='checkbox'] {
+  position: absolute;
+  bottom: 0px;
+  left: 5px;
+}
+/* 总金额 */
+.priceArea {
+  position: absolute;
+  bottom: 55px;
+  left: 0;
+  height: 30px;
+  width: 100%;
+  background-color: #ccc;
+  padding-left: 10px;
+}
+.priceArea span {
+  font-size: 12px;
+  line-height: 30px;
+  color: #ff3300;
+}
+.priceArea button {
+  background-color: #ff3300;
+  color: #fff;
+  float: right;
+}
+.mui-table-view-chevron .mui-table-view-cell {
+  padding: 11px 15px;
+}
+/* 摘抄样式 弹窗的 */
+.pro_size {
+  color: #000;
+}
+.pro_size span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid #ccc;
+  margin-left: 6px;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+.pro_size span.now {
+  background-color: #fa0;
+}
+.pro_num {
+  color: #000;
+}
+.pro_num .box {
+  display: inline-block;
+  text-align: center;
+  line-height: 30px;
+}
+.pro_num .box span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+}
+.pro_num .box span:active {
+  background-color: #ccc;
+}
+.pro_num .box input {
+  width: 50px;
+  height: 30px;
+  border: 1px solid #ccc;
+}
